@@ -1,15 +1,23 @@
 <!doctype html>
 <html ng-app>
 	<head>
-		<title>Using Directives</title>
+		<title>More Directives</title>
+		<link href="styles.css" rel="stylesheet" type="text/css" />
 	</head>
-	<body ng-init="name='Sam'">
-		<div ng-hide="isHidden">
-			Name: <input type="text" ng-model="name" /> {{ name }}
-		</div>
-		Hide: <input type="checkbox" ng-model="isHidden" />
+	<body ng-init="data={name:'James', isVisible: false, loggedIn: true, status: 'red'}">
+		<div ng-cloak>
+			<div ng-switch on="data.loggedIn">
+				<div ng-switch-when="true" ng-class="data.status">
+					Welcome {{ data.name }}
+				</div>
+			<div ng-switch-default ng-class="data.status">Login</div>
+			</div>
 		<br />
-		<button ng-click="name='Maddie'">Change Name</button>
+		<div ng-show="data.isVisible">
+			Name: <input type="text" ng-model="data.name" />
+			{{ data.name }}
+		</div>
+		</div>
 		<script src="angular.js"></script>
 	</body>
 </html>
