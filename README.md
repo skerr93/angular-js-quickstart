@@ -1,0 +1,1 @@
+App built along with udemy angularjs-jumpstart class
