@@ -1,66 +1,16 @@
 <!doctype html>
 <html ng-app="customersApp">
 	<head>
-		<title>Iterating over data</title>
+		<title>Routing Views</title>
 		<link href="styles.css" rel="stylesheet" type="text/css" />
 	</head>
-	<!--
-	<body ng-init="data={name:'James', isVisible: false, loggedIn: true, status: 'red'}">
-		<div ng-cloak>
-			<div ng-switch on="data.loggedIn">
-				<div ng-switch-when="true" ng-class="data.status">
-					Welcome {{ data.name }}
-				</div>
-			<div ng-switch-default ng-class="data.status">Login</div>
-			</div>
-		<br />
-		<div ng-show="data.isVisible">
-			Name: <input type="text" ng-model="data.name" />
-			{{ data.name }}
-		</div>
-		</div>
+	<body>
 
-		<div ng-init="people=[{name:'Sam', city:'Philadelphia'},{name:'Dan', city:'Raleigh'},{name:'Adam', city:'Toronto'}]">
-			<ul>
-				<li ng-repeat="person in people"> {{ person.name }} {{ person.city }}</li>
-			</ul>
+		<div ng-view></div>
 
-			<table>
-			<tr>
-				<td>Name</td>
-				<td>City</td>
-			</tr>
-				<tr ng-repeat="person in people">
-					<td>{{person.name}}</td>
-					<td>{{person.city}}</td>
-				</tr>
-			</table>
-		<script src="angular.js"></script>
-	</body>
-	-->
-	<body ng-controller="CustomersController as ctrl">
-		<h2>Customers</h2>
-		Filter: <input type="text" ng-model="customerFilter.name"/>
-		<br /><br />
-		<table>
-			<tr>
-				<th ng-click="doSort('name')">Name</th>
-				<th ng-click="doSort('city')">City</th>
-				<th ng-click="doSort('orderTotal')">Order Total</th>
-				<th ng-click="doSort('joined')">Joined</th>
-			</tr>
-			<tr ng-repeat="cust in customers | filter:customerFilter | orderBy:sortBy:reverse">
-				<td>{{ cust.name | uppercase }}</td>
-				<td>{{ cust.city | lowercase }}</td>
-				<td>{{ cust.orderTotal | currency }}</td>
-				<td>{{ cust.joined | date }}</td>
-			</tr>
-		</table>
-
-		<span>Total customers: {{ customers.length }}</span>
-
-		<script src="angular.js"></script>
+		<script src="scripts/angular.js"></script>
+		<script src="scripts/angular-route.js"></script>
 		<script src="app/app.js"></script>
-		<script src="app/controllers/customersControllerWithAs.js"></script>
+		<script src="app/controllers/customersController.js"></script>
 	</body>
 </html>
