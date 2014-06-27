@@ -6,7 +6,7 @@
         $scope.totalType;
         
         function init() {
-             customersFactory.getOrders()
+            customersFactory.getOrders()
                 .success(function(orders) {
                     $scope.orders = orders;
                     getOrdersTotal();
