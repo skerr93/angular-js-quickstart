@@ -23,7 +23,7 @@ app.get('/customers/:id', function(req, res) {
 
 app.get('/customers', function(req, res) {
     res.json(customers);
-    //res.json(500, { error: 'An error has occurred!' });
+    // res.json(500, { error: 'An error has occurred!' });
 });
 
 app.get('/orders', function(req, res) {
